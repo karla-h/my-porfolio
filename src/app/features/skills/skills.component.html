@@ -1,0 +1,15 @@
+<section class="container-skills" id="skill">
+  <h2 class="header">SKILLS</h2>
+  <div class="skills-grid">
+    @for (category of skills; track $index) {
+      <div class="skill-card">
+        <div class="card-header">{{ category.title }}</div>
+        <div class="card-body">
+          @for (icon of category.icons; track $index) {
+            <img src="icons/{{ icon }}" class="skill-icon" alt="Skill Icon">
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>

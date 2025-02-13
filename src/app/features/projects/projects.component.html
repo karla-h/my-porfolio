@@ -1,0 +1,32 @@
+<section class="container-project" id="project">
+  <h2 class="header">PROYECTOS</h2>
+  <div class="carousel-wrapper">
+    <button class="prev-btn" (click)="scrollLeft()" aria-label="Anterior">&#10094;</button>
+    <div class="carousel" #carousel>
+      <div class="cards">
+        @for (card of cards; track $index) {
+          <div class="card">
+            <img src="{{ card.imageUrl }}" alt="{{ card.title }}" class="project-image">
+            <h3 class="project-title">{{ card.title }}</h3>
+            <p class="project-description">{{ card.description }}</p>
+            <div class="icons-container">
+              <div class="icons">
+                @for (icon of card.icons; track $index) {
+                  <img src="{{ icon }}" class="icon" alt="Technology Icon">
+                }
+              </div>
+              <div class="links">
+                @for (link of card.links; track $index) {
+                  <a href="{{ link.url }}" target="_blank">
+                    <img src="{{ link.icon }}" alt="Enlace" class="link-icon">
+                  </a>
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+    <button class="next-btn" (click)="scrollRight()" aria-label="Siguiente">&#10095;</button>
+  </div>
+</section>
