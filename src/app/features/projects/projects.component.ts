@@ -13,8 +13,17 @@ export class ProjectsComponent implements AfterViewInit {
 
   cards: any[] = [
     {
+      title: 'Sistema web de gestión de planillas | Grupo Progresando Todos',
+      description: 'Sistema desarrollado con Laravel, Angular y MySQL para automatizar planillas quincenales y generar reportes por sede, reduciendo tiempos de procesamiento y mejorando la gestión de desembolsos.',
+      imageUrl: 'images/projects/Planillas_.PNG',
+      icons: ['icons/angular.svg', 'icons/laravel.svg', 'icons/mysql.svg'],
+      links: [
+        { url: 'https://github.com/karla-h/sistema-planillas', icon: 'icons/github.svg' }
+      ]
+    },    
+    {
       title: 'Sistema web de gestión de reservas | Hotel VanGogh ',
-      description: 'Panel administrativo desarrollado con Spring Boot y Angular para optimizar la gestión de reservas. Este proyecto permitió reducir el tiempo de registro de reservas y minimizar errores en la disponibilidad de habitaciones, mejorando la eficiencia operativa del hotel.',
+      description: 'Panel administrativo desarrollado con Spring Boot y Angular para optimizar la gestión de reservas. El proyecto permitió reducir el tiempo de registro de reservas y minimizar errores en la disponibilidad de habitaciones, mejorando la eficiencia operativa del hotel.',
       imageUrl: 'images/projects/ReservasHotel.jpg',
       icons: ['icons/angular.svg', 'icons/spring-boot.svg','icons/postgresql.svg'],
       links: [
@@ -32,7 +41,7 @@ export class ProjectsComponent implements AfterViewInit {
     },
     {
       title: 'Sistema de gestión de citas | Clínica San José',
-      description: 'Sistema de escritorio diseñado para gestionar citas de pacientes. Este proyecto mejoró la organización en la atención médica y redujo significativamente el tiempo necesario para registrar citas, optimizando el flujo de trabajo.',
+      description: 'Sistema de escritorio diseñado para gestionar citas de pacientes. El sistema mejoró la organización en la atención médica y redujo significativamente el tiempo necesario para registrar citas, optimizando el flujo de trabajo.',
       imageUrl: 'images/projects/ClinicaSanJose.PNG',
       icons: ['icons/java.svg', 'icons/mysql.svg'],
       links: [
