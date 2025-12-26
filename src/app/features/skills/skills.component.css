@@ -37,36 +37,45 @@
 
 .skill-card {
   border-radius: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: none;
-  background: transparent;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  padding: 20px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .skill-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px rgba(183, 113, 229, 0.5), 
+              inset 0 0 15px rgba(183, 113, 229, 0.2);
+  border-color: #B771E5;
 }
 
 .card-header {
-  background-color: #493D9E;
+  background: linear-gradient(90deg, #493D9E, #6a5acd);
   color: white;
   font-size: 1.2rem;
-  padding: 12px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  padding: 15px;
+  width: 100%;
   font-weight: bold;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .card-body {
+  padding: 25px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 15px;
-  padding: 15px;
+  gap: 20px;
+  flex-grow: 1;
 }
 
 .skill-icon {

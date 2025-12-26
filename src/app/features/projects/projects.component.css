@@ -193,45 +193,137 @@
 .next-btn { right: 0; }
 
 @media (max-width: 768px) {
+  .container-project {
+    padding: 3rem 1rem; /* Reducir padding lateral */
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .carousel-wrapper {
     display: block;
-    animation: none;
+    width: 100%;
+    max-width: 100%;
   }
+
   .carousel {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 0;
+    width: 100%;
+    overflow: visible;
   }
+
   .cards {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
+    width: 100%;
+    padding: 10px 0;
   }
+
   .cards .card {
-    width: 90%;
+    width: 100%;
+    max-width: 450px;
     height: auto;
+    margin: 0 auto;
   }
+
   .prev-btn,
   .next-btn {
     display: none;
   }
+
   .card:hover .links,
   .card:hover .icons {
-    display: flex!important;
+    display: flex !important;
   }
 
   .card .links,
   .card .icons {
-    display: flex!important;
+    display: flex !important;
   }
 
-  .icons-container{
+  .icons-container {
     position: relative;
+    margin-top: 15px;
   }
 
   .cards:hover > .card:not(:hover) {
     filter: none;
     transform: none;
   }
+}
+
+.cards .card .links a.demo-btn {
+  width: auto;
+  padding: 0 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+
+.cards .card .links a.demo-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 45px;
+  width: auto;
+}
+
+.cards .card .links a.demo-btn:hover {
+  background: #B771E5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(183, 113, 229, 0.4);
+}
+
+.cards .card .links a.demo-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.cards .card .links a.project-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 45px;
+  width: auto;
+}
+
+.cards .card .links a.project-btn:hover {
+  background: #B771E5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(183, 113, 229, 0.4);
+}
+
+.cards .card .links a.project-btn .btn-icon,
+.cards .card .links a.project-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.cards .card .links a:not(.project-btn) {
+  display: none;
 }

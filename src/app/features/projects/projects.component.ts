@@ -1,4 +1,13 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnInit } from '@angular/core';
+
+export interface Project {
+  title: string;
+  description: string;
+  imageUrl: string;
+  icons: string[];
+  links?: { url: string; icon: string; label?: string }[];
+  demoUrl?: string;
+}
 
 @Component({
   selector: 'app-projects',
@@ -7,16 +16,46 @@ import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })
-export class ProjectsComponent implements AfterViewInit {
+export class ProjectsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('carousel') carousel!: ElementRef;
 
-  cards: any[] = [
+  cards: Project[] = [
+
+    {
+      title: 'Sistema web integral de gestión hotelera | CHECA HOTEL & AIRBNB',
+      description: 'Sistema web completo que automatiza reservas de habitaciones, gestión de tienda, inventarios y flujo de caja. Implementado con Laravel, Angular y MySQL, mejoró el control operativo en 40% y redujo errores administrativos en 35%.',
+      imageUrl: 'images/projects/list_booking.PNG',
+      icons: ['icons/laravel.svg', 'icons/angular.svg', 'icons/mysql.svg'],
+      demoUrl: 'https://vibepoint.alkaana.com',
+      links: [
+      ]
+    },
+    {
+      title: 'Sistema web de gestión de pedidos | Avícola DG',
+      description: 'Plataforma web para gestión de pedidos de insumos, empaquetación, distribución y reportes de ventas. Optimizó la logística en 45%, mejoró el control de pedidos en 40% y aumentó la eficiencia comercial del negocio.',
+      imageUrl: 'images/projects/pedidos.PNG',
+      icons: ['icons/laravel.svg', 'icons/angular.svg', 'icons/mysql.svg'],
+      demoUrl: 'https://pedidos.alkaana.com',
+      links: [
+      ]
+    },
+    {
+      title: 'Sistema web de evaluación de créditos | Grupo Progresando',
+      description: 'Sistema web con Laravel, Angular y MySQL para el proceso de aprobación de créditos. Incluye módulos de usuarios, solicitudes, evaluaciones y reportes. Redujo el tiempo de evaluación en 50% y los gastos operativos en 80%.',
+      imageUrl: 'images/projects/credit_eval.PNG',
+      icons: ['icons/laravel.svg', 'icons/angular.svg', 'icons/mysql.svg'],
+      demoUrl: 'https://credieval.alkaana.com/',
+      links: [
+       
+      ]
+    },
     {
       title: 'Sistema web de gestión de planillas | Grupo Progresando Todos',
       description: 'Sistema desarrollado con Laravel, Angular y MySQL para automatizar planillas quincenales y generar reportes por sede, reduciendo tiempos de procesamiento y mejorando la gestión de desembolsos.',
-      imageUrl: 'images/projects/Planillas_.PNG',
+      imageUrl: 'images/projects/planillas_admin.PNG',
       icons: ['icons/angular.svg', 'icons/laravel.svg', 'icons/mysql.svg'],
+      demoUrl: '#',
       links: [
         { url: 'https://github.com/karla-h/sistema-planillas', icon: 'icons/github.svg' }
       ]
@@ -68,13 +107,43 @@ export class ProjectsComponent implements AfterViewInit {
     }
   ];
 
+  ngOnInit() {
+    this.cards = [...this.cards, ...this.cards];
+  }
+
   ngAfterViewInit() {}
 
   scrollLeft() {
-    this.carousel.nativeElement.scrollBy({ left: -300, behavior: 'smooth' });
+    const container = this.carousel.nativeElement;
+    const cardWidth = 340;
+    const totalWidth = container.scrollWidth;
+    const oneSetWidth = totalWidth / 2;
+
+    if (container.scrollLeft <= 10) {
+      container.style.scrollBehavior = 'auto';
+      container.scrollLeft = oneSetWidth;
+      container.style.scrollBehavior = 'smooth';
+    }
+    
+    setTimeout(() => {
+      container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+    }, 50);
   }
 
   scrollRight() {
-    this.carousel.nativeElement.scrollBy({ left: 300, behavior: 'smooth' });
+    const container = this.carousel.nativeElement;
+    const cardWidth = 340;
+    const totalWidth = container.scrollWidth;
+    const oneSetWidth = totalWidth / 2;
+    
+    if (container.scrollLeft >= oneSetWidth - 10) {
+      container.style.scrollBehavior = 'auto';
+      container.scrollLeft = container.scrollLeft - oneSetWidth;
+      container.style.scrollBehavior = 'smooth';
+    }
+
+    setTimeout(() => {
+      container.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    }, 50);
   }
 }

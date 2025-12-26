@@ -7,6 +7,7 @@ import { ContactComponent } from './features/contact/contact.component';
 import { ProjectsComponent } from './features/projects/projects.component';
 import { SkillsComponent } from './features/skills/skills.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
+import { Background3dComponent } from './shared/components/background-3d/background-3d.component';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     ContactComponent,
     ProjectsComponent,
     SkillsComponent,
-    FooterComponent
+    FooterComponent,
+    Background3dComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
