@@ -1,4 +1,5 @@
-import { Component, ViewChild, ElementRef, AfterViewInit, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnInit, Inject, PLATFORM_ID, HostListener } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 export interface Project {
   title: string;
@@ -55,7 +56,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       description: 'Sistema desarrollado con Laravel, Angular y MySQL para automatizar planillas quincenales y generar reportes por sede, reduciendo tiempos de procesamiento y mejorando la gestión de desembolsos.',
       imageUrl: 'images/projects/planillas_admin.PNG',
       icons: ['icons/angular.svg', 'icons/laravel.svg', 'icons/mysql.svg'],
-      demoUrl: '#',
+      demoUrl: 'https://paywise.alkaana.com',
       links: [
         { url: 'https://github.com/karla-h/sistema-planillas', icon: 'icons/github.svg' }
       ]
@@ -107,8 +108,28 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     }
   ];
 
+  originalCards: Project[] = [];
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngOnInit() {
-    this.cards = [...this.cards, ...this.cards];
+    this.originalCards = [...this.cards];
+    this.updateCardsDisplay();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.updateCardsDisplay();
+  }
+
+  updateCardsDisplay() {
+    if (isPlatformBrowser(this.platformId)) {
+      if (window.innerWidth > 768) {
+        this.cards = [...this.originalCards, ...this.originalCards];
+      } else {
+        this.cards = [...this.originalCards];
+      }
+    }
   }
 
   ngAfterViewInit() {}
